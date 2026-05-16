@@ -1,0 +1,551 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #050505;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  padding: 18px;
+  overflow-x: hidden;
+}
+
+.layout {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px 170px 120px 120px 105px;
+
+  grid-template-areas:
+    "imageOne circle   menu    topPill"
+    "imageOne   location menu    product"
+    "poster   location menu    product"
+    "poster   awards   review  review"
+    "poster   download review  review";
+
+  gap: 16px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #171717, #0d0d0d);
+}
+
+.image-one {
+  grid-area: imageOne;
+}
+
+.circle-card {
+  grid-area: circle;
+}
+
+.menu-card {
+  grid-area: menu;
+}
+
+.top-pill {
+  grid-area: topPill;
+}
+
+.poster-card {
+  grid-area: poster;
+}
+
+.location-card {
+  grid-area: location;
+}
+
+.product-card {
+  grid-area: product;
+}
+
+.awards-card {
+  grid-area: awards;
+}
+
+.download-card {
+  grid-area: download;
+}
+
+.review-card {
+  grid-area: review;
+}
+
+.image-one img,
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card {
+  border: 8px solid #111111;
+  background: #dfff3f;
+}
+
+.circle-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  width: 130px;
+  height: 130px;
+  border: 2px solid #dfff3f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circle i {
+  font-size: 48px;
+  color: #eeeeee;
+}
+
+.circle-svg {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  animation: spin 18s linear infinite;
+}
+
+.circle-svg text {
+  fill: #ffffff;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.menu-card {
+  padding: 28px 24px;
+}
+
+.menu-item {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  color: #eeeeee;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 14px;
+}
+
+.menu-item i {
+  width: 20px;
+  font-size: 16px;
+}
+
+.menu-item.active {
+  background: rgba(255, 255, 255, 0.08);
+  margin-left: -12px;
+  margin-right: -12px;
+  padding-left: 12px;
+  border-radius: 14px;
+}
+
+.menu-item.active i {
+  color: #dfff3f;
+}
+
+.active-dot {
+  position: absolute;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  background: #a84dff;
+  border-radius: 50%;
+}
+
+.menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 18px 0;
+}
+
+.top-pill {
+  height: 86px;
+  border-radius: 26px;
+  background: #9147ff;
+  padding: 18px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.pill-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pill-box i {
+  font-size: 24px;
+}
+
+.pill-box p {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.pill-line {
+  width: 1px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.poster-card {
+  border: 2px solid #dfff3f;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.poster-card h1 {
+  font-size: 58px;
+  line-height: 0.9;
+  letter-spacing: -4px;
+  font-weight: 900;
+}
+
+.poster-card h3 {
+  margin-top: 20px;
+  color: #b552ff;
+  font-size: 13px;
+  letter-spacing: 8px;
+  line-height: 1.5;
+}
+
+.poster-divider {
+  height: 1px;
+  width: 100%;
+  margin: 22px 0;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.bitcoin-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bitcoin-icon {
+  width: 52px;
+  height: 52px;
+  background: #dfff3f;
+  color: #000000;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.bitcoin-row p {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.barcode {
+  height: 58px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffffff 0 3px,
+    transparent 3px 7px,
+    #ffffff 7px 9px,
+    transparent 9px 14px
+  );
+}
+
+.location-card {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pin {
+  width: 38px;
+  height: 22px;
+  background: #dfff3f;
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 18px;
+  left: 26px;
+}
+
+.address {
+  position: absolute;
+  top: 32px;
+  left: 88px;
+  color: #777777;
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.location-card h2 {
+  margin-top: 22px;
+  font-size: 19px;
+  line-height: 1.28;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.site-link {
+  margin-top: 28px;
+  color: #777777;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.awards-card {
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.award {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.award i {
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  color: #111111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -4px;
+}
+
+.award div {
+  width: 18px;
+  height: 34px;
+  background: #e8e8e8;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 75%, 0 100%);
+}
+
+.download-card {
+  background: #dfff3f;
+  color: #000000;
+  border-radius: 22px;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: 66px 1fr 24px;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fake-qr {
+  width: 64px;
+  height: 64px;
+  background:
+    linear-gradient(90deg, #000 8px, transparent 8px) 0 0 / 18px 18px,
+    linear-gradient(#000 8px, transparent 8px) 0 0 / 18px 18px,
+    #dfff3f;
+  border: 8px solid #000;
+}
+
+.download-text h4 {
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.download-text p {
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.download-card > i {
+  font-size: 20px;
+  align-self: start;
+}
+
+.review-card {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 24px;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  align-items: center;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.review-card h2 {
+  font-size: 34px;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  max-width: 310px;
+}
+
+.review-card p {
+  margin-top: 44px;
+  color: #444444;
+  font-size: 14px;
+}
+
+.rating {
+  text-align: right;
+}
+
+.rating h1 {
+  font-size: 76px;
+  line-height: 0.9;
+  letter-spacing: 2px;
+}
+
+.stars {
+  margin: 18px 0 28px;
+  color: #dfff3f;
+  font-size: 21px;
+  letter-spacing: 5px;
+}
+
+.rating button {
+  border: none;
+  outline: none;
+  background: #9147ff;
+  color: #ffffff;
+  padding: 15px 24px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.rating button i {
+  margin-left: 22px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1050px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "imageOne circle"
+      "menu menu"
+      "topPill topPill"
+      "product product"
+      "poster location"
+      "awards download"
+      "review review";
+  }
+
+  .image-one,
+  .circle-card,
+  .location-card,
+  .awards-card,
+  .download-card {
+    min-height: 180px;
+  }
+
+  .menu-card {
+    min-height: 330px;
+  }
+
+  .product-card {
+    min-height: 280px;
+  }
+
+  .poster-card {
+    min-height: 360px;
+  }
+
+  .review-card {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 650px) {
+  body {
+    padding: 12px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "imageOne"
+      "circle"
+      "menu"
+      "topPill"
+      "product"
+      "poster"
+      "location"
+      "awards"
+      "download"
+      "review";
+    gap: 14px;
+  }
+
+  .top-pill {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pill-line {
+    display: none;
+  }
+
+  .review-card {
+    grid-template-columns: 1fr;
+  }
+
+  .rating {
+    text-align: left;
+  }
+
+  .poster-card h1 {
+    font-size: 50px;
+  }
+
+  .review-card h2 {
+    font-size: 30px;
+  }
+
+  .rating h1 {
+    font-size: 62px;
+  }
+}
